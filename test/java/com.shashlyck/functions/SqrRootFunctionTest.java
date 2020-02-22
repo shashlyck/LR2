@@ -1,4 +1,4 @@
-package com.shashlyck.tests.functions;
+package com.shashlyck.functions;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +8,7 @@ class SqrRootFunctionTest {
 
     @Test
     void apply() {
-
+        SqrRootFunction firstNumber = new SqrRootFunction();
+        assertEquals(firstNumber.apply(64), 8, 0.01);
     }
 }

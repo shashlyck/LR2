@@ -1,4 +1,4 @@
-package com.shashlyck.tests.functions;
+package com.shashlyck.functions;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,5 +8,7 @@ class SqrFunctionTest {
 
     @Test
     void apply() {
+        SqrFunction firstNumber = new SqrFunction();
+        assertEquals(firstNumber.apply(2), 4, 0.1);
     }
 }

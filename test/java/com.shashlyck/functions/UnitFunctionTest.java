@@ -1,11 +1,14 @@
-package com.shashlyck.tests.functions;
+package com.shashlyck.functions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class UnitFunctionTest {
+
     @Test
-    public void test(){
-
+    void apply() {
+        UnitFunction firstNumber = new UnitFunction();
+        assertEquals(firstNumber.apply(1295.2), 1.00, 0.1);
     }
-
 }

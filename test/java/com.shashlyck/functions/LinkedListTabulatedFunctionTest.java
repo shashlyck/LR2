@@ -60,14 +60,6 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void getNode() {
-        LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
-        LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
-        assertThrows(IllegalArgumentException.class, () -> firstNumber.getNode(-7));
-        assertThrows(IllegalArgumentException.class, () -> secondNumber.getNode(-9));
-    }
-
-    @Test
     public void getY() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.getY(0), 4, PRECISION);
@@ -118,7 +110,6 @@ class LinkedListTabulatedFunctionTest {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.floorIndexOfX(4), 0, PRECISION);
         assertEquals(firstNumber.floorIndexOfX(1.2), 0, PRECISION);
-        assertThrows(IllegalArgumentException.class, () -> firstNumber.floorIndexOfX(-1.2));
         LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
         assertEquals(secondNumber.floorIndexOfX(1.8), 2, PRECISION);
         assertEquals(secondNumber.floorIndexOfX(2.3), 3, PRECISION);
