@@ -73,7 +73,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
     }
 
 
-    Node getNode(int index) {
+    public Node getNode(int index) {
         Node node;
 
         if (index > (count / 2)) {
@@ -137,7 +137,8 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
         return -1;
     }
 
-    protected int floorIndexOfX(double x){
+    @Override
+    public int floorIndexOfX(double x){
         Node node;
         node = head;
         for (int i = 0; i < count; i++) {
@@ -151,7 +152,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
     }
 
 
-    private Node floorNodeOfX(double x) throws IllegalArgumentException {
+    private Node floorNodeOfX(double x){
         Node adding;
 
         adding = head;
@@ -166,17 +167,17 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
     }
 
     @Override
-    protected double extrapolateLeft(double x) {
+    public double extrapolateLeft(double x) {
         return interpolate(x, head.x, head.next.x, head.y, head.next.y);
     }
 
     @Override
-    protected double extrapolateRight(double x) {
+    public double extrapolateRight(double x) {
         return interpolate(x, head.prev.prev.x, head.prev.x, head.prev.prev.y, head.prev.y);
     }
 
     @Override
-    protected double interpolate(double x, int floorIndex) {
+    public double interpolate(double x, int floorIndex) {
         Node left = getNode(floorIndex);
         Node right = left.next;
         return interpolate(x, left.x, right.x, left.y, right.y);
