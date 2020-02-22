@@ -3,7 +3,6 @@ package com.shashlyck.tests.functions;
 import com.shashlyck.functions.IdentityFunction;
 import com.shashlyck.functions.LinkedListTabulatedFunction;
 import com.shashlyck.functions.MathFunction;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

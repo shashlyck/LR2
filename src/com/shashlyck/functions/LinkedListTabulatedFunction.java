@@ -43,7 +43,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
         double y;
     }
 
-    void addNode(double x, double y) {
+    public void addNode(double x, double y) {
         var node = new Node();
         node.x = x;
         node.y = y;
