@@ -20,14 +20,14 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testAddNode() {
+    public void addNode() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         firstNumber.addNode(5, 14);
         assertEquals(firstNumber.rightBound(), 5, PRECISION);
     }
 
     @Test
-    public void testGetCount() {
+    public void getCount() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.getCount(), 5, PRECISION);
         LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
@@ -35,7 +35,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testLeftBound() {
+    public void leftBound() {
         LinkedListTabulatedFunction firstList = initializeUsingArrays();
         assertEquals(firstList.leftBound(), 1, PRECISION);
         LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
@@ -43,7 +43,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testRightBound() {
+    public void rightBound() {
         LinkedListTabulatedFunction firstList = initializeUsingArrays();
         assertEquals(firstList.rightBound(), 13, PRECISION);
         LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
@@ -51,7 +51,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testGetX() {
+    public void getX() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
         assertEquals(secondNumber.getX(2), 1.8, PRECISION);
@@ -61,7 +61,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testGetNode() {
+    public void getNode() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
         assertThrows(IllegalArgumentException.class, () -> firstNumber.getNode(-7));
@@ -69,7 +69,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testGetY() {
+    public void getY() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.getY(0), 4, PRECISION);
         LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
@@ -77,7 +77,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testSetY() {
+    public void setY() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         firstNumber.setY(3, 16);
         assertEquals(firstNumber.getY(3), 16, PRECISION);
@@ -87,7 +87,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testApply() {
+    public void apply() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.apply(0), 3.3, PRECISION);
         assertEquals(firstNumber.apply(8), 8.7, PRECISION);
@@ -95,7 +95,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testIndexOfX() {
+    public void indexOfX() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.indexOfX(4), 1, PRECISION);
         assertEquals(firstNumber.indexOfX(-1), -1, PRECISION);
@@ -105,7 +105,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testIndexOfY() {
+    public void indexOfY() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.indexOfY(4), 0, PRECISION);
         assertEquals(firstNumber.indexOfY(-1), -1, PRECISION);
@@ -115,7 +115,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testFloorIndexOfX() {
+    public void floorIndexOfX() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.floorIndexOfX(4), 0, PRECISION);
         assertEquals(firstNumber.floorIndexOfX(1.2), 0, PRECISION);
@@ -126,7 +126,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testExtrapolateLeft() {
+    public void extrapolateLeft() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         LinkedListTabulatedFunction secondNumber = initializeUsingMathFunction();
         assertEquals(firstNumber.extrapolateLeft(0), 3.3, PRECISION);
@@ -136,7 +136,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testExtrapolateRight() {
+    public void extrapolateRight() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.extrapolateRight(6), 7.3, PRECISION);
         assertEquals(firstNumber.extrapolateRight(5), 6.7, PRECISION);
@@ -146,7 +146,7 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
-    public void testInterpolate() {
+    public void interpolate() {
         LinkedListTabulatedFunction firstNumber = initializeUsingArrays();
         assertEquals(firstNumber.interpolate(5, 1), 6.7, PRECISION);
         assertEquals(firstNumber.interpolate(7, 2), 8, PRECISION);

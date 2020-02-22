@@ -44,15 +44,18 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         }
     }
 
+    @Override
     public int getCount() {
         return count;
     }
 
+    @Override
     public double getX(int index){
 
         return xValues[index];
     }
 
+    @Override
     public double getY(int index){
         if (index < 0 || index >= count) {
             throw new IllegalArgumentException("index went beyond");
@@ -60,19 +63,23 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         return yValues[index];
     }
 
+    @Override
     public void setY(int index, double value){
 
         yValues[index] = value;
     }
 
+    @Override
     public double leftBound() {
         return xValues[0];
     }
 
+    @Override
     public double rightBound() {
         return xValues[count - 1];
     }
 
+    @Override
     public int indexOfX(double x) {
         for (int i = 0; i < count; i++) {
             if (xValues[i] == x) {
@@ -82,6 +89,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         return -1;
     }
 
+    @Override
     public int indexOfY(double y) {
         for (int i = 0; i < count; i++) {
             if (yValues[i] == y) {
@@ -91,7 +99,8 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         return -1;
     }
 
-    public int floorIndexOfX(double x){
+    @Override
+    protected int floorIndexOfX(double x){
 
         for (int i = 0; i < count; i++) {
             if (xValues[i] > x) {
@@ -101,15 +110,18 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         return count;
     }
 
+    @Override
     protected double extrapolateLeft(double x) {
         return interpolate(x, xValues[0], xValues[1], yValues[0], yValues[1]);
     }
 
+    @Override
     protected double extrapolateRight(double x) {
         return interpolate(x, xValues[count - 2], xValues[count - 1], yValues[count - 2], yValues[count - 1]);
     }
 
-    public double interpolate(double x, int floorIndex) {
+    @Override
+    protected double interpolate(double x, int floorIndex) {
 
         return interpolate(x, xValues[floorIndex], xValues[floorIndex + 1], yValues[floorIndex], yValues[floorIndex + 1]);
     }

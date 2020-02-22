@@ -4,6 +4,14 @@ import java.io.Serializable;
 
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
 
+    public static class Node implements Serializable {
+
+        Node next;
+        Node prev;
+        double x;
+        double y;
+    }
+
     private Node head;
 
     public LinkedListTabulatedFunction(double[] xValues, double[] yValues) {
@@ -35,15 +43,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
         }
     }
 
-    public static class Node implements Serializable {
-
-        Node next;
-        Node prev;
-        double x;
-        double y;
-    }
-
-    public void addNode(double x, double y) {
+    protected void addNode(double x, double y) {
         var node = new Node();
         node.x = x;
         node.y = y;
@@ -60,30 +60,13 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
         count++;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public double leftBound() {
-        return head.x;
-    }
-
-    public double rightBound() {
-        return head.prev.x;
-    }
-
-
-    public Node getNode(int index) {
+    protected Node getNode(int index) {
         Node node;
-
         if (index > (count / 2)) {
             node = head.prev;
             for (int i = count - 1; i > 0; i--) {
-                if (i == index) {
-                    return node;
-                } else {
-                    node = node.prev;
-                }
+                if (i == index) return node;
+                else node = node.prev;
             }
         } else {
             node = head;
@@ -98,21 +81,58 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
         return node;
     }
 
+    private Node nodeOfX(double x) {
+        Node node = head;
+
+        for (int i = 0; i < count; i++)
+            if (node.x == x) return node;
+            else node = node.next;
+
+        throw new UnsupportedOperationException();
+    }
+
+    private Node floorNodeOfX(double x){
+        Node node = head;
+        for (int i = 0; i < count; i++)
+            if (node.x < x) node = node.next;
+            else return node.prev;
+        return head.prev;
+    }
+
+    @Override
+    public int getCount() {
+        return count;
+    }
+
+    @Override
+    public double leftBound() {
+        return head.x;
+    }
+
+    @Override
+    public double rightBound() {
+        return head.prev.x;
+    }
+
+    @Override
     public double getX(int index)  {
 
         return getNode(index).x;
     }
 
+    @Override
     public double getY(int index){
 
         return getNode(index).y;
     }
 
+    @Override
     public void setY(int index, double value) {
 
         getNode(index).y = value;
     }
 
+    @Override
     public int indexOfX(double x) {
         Node node;
         node = head;
@@ -125,6 +145,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
         return -1;
     }
 
+    @Override
     public int indexOfY(double y) {
         Node node;
         node = head;
@@ -149,21 +170,6 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
             }
         }
         return getCount();
-    }
-
-
-    private Node floorNodeOfX(double x){
-        Node adding;
-
-        adding = head;
-        for (int i = 0; i < count; i++) {
-            if (adding.x < x) {
-                adding = adding.next;
-            } else {
-                return adding.prev;
-            }
-        }
-        return head.prev;
     }
 
     @Override
@@ -196,18 +202,5 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
             Node right = left.next;
             return super.interpolate(x, left.x, right.x, left.y, right.y);
         }
-    }
-
-    private Node nodeOfX(double x) {
-        Node node;
-        node = head;
-        for (int i = 0; i < count; i++) {
-            if (node.x == x) {
-                return node;
-            } else {
-                node = node.next;
-            }
-        }
-        throw new UnsupportedOperationException();
     }
 }
