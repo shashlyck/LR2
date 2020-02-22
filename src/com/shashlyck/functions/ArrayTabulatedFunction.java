@@ -57,9 +57,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
 
     @Override
     public double getY(int index){
-        if (index < 0 || index >= count) {
-            throw new IllegalArgumentException("index went beyond");
-        }
+
         return yValues[index];
     }
 
