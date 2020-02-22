@@ -1,6 +1,6 @@
 package com.shashlyck.functions;
 
-public abstract class ConstantFunction implements MathFunction{
+public class ConstantFunction implements MathFunction{
 
     private double constant;
 
