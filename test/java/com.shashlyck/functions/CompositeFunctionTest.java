@@ -1,4 +1,4 @@
-package com.shashlyck.tests.functions;
+package com.shashlyck.functions;
 
 import org.junit.jupiter.api.Test;
 

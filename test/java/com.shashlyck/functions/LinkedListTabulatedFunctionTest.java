@@ -1,8 +1,4 @@
-package com.shashlyck.tests.functions;
-
-import com.shashlyck.functions.IdentityFunction;
-import com.shashlyck.functions.LinkedListTabulatedFunction;
-import com.shashlyck.functions.MathFunction;
+package com.shashlyck.functions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

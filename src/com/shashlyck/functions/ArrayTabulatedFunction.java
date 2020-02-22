@@ -44,16 +44,6 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         }
     }
 
-    public ArrayTabulatedFunction() {
-        xValues = new double[]{};
-        yValues = new double[]{};
-        count = 0;
-    }
-
-    public static TabulatedFunction getIdentity() {
-        return new ArrayTabulatedFunction();
-    }
-
     public int getCount() {
         return count;
     }
@@ -101,7 +91,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         return -1;
     }
 
-    protected int floorIndexOfX(double x){
+    public int floorIndexOfX(double x){
 
         for (int i = 0; i < count; i++) {
             if (xValues[i] > x) {
@@ -119,7 +109,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction{
         return interpolate(x, xValues[count - 2], xValues[count - 1], yValues[count - 2], yValues[count - 1]);
     }
 
-    protected double interpolate(double x, int floorIndex) {
+    public double interpolate(double x, int floorIndex) {
 
         return interpolate(x, xValues[floorIndex], xValues[floorIndex + 1], yValues[floorIndex], yValues[floorIndex + 1]);
     }
