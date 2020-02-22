@@ -14,7 +14,6 @@ class LinkedListTabulatedFunctionTest {
     private LinkedListTabulatedFunction initializeUsingArrays() {
         return new LinkedListTabulatedFunction(xValues, yValues);
     }
-
     private LinkedListTabulatedFunction initializeUsingMathFunction() {
         return new LinkedListTabulatedFunction(Function, 1, 5, 11);
     }

@@ -1,6 +1,6 @@
 package com.shashlyck.functions;
 
-public interface TabulatedFunction {
+public interface TabulatedFunction extends MathFunction {
     int getCount();
 
     double getX(int index);
