@@ -2,6 +2,8 @@ package com.shashlyck.functions;
 
 public abstract class AbstractTabulatedFunction implements TabulatedFunction {
 
+    protected int count;
+
     protected abstract int floorIndexOfX(double x);
 
     protected abstract double extrapolateLeft(double x);
